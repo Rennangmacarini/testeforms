@@ -105,3 +105,28 @@ button:hover {
 .horario {
   width: 40%;
 }
+
+.input-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-wrapper input {
+  width: 100%;
+  padding: 10px;
+  padding-right: 35px; /* Espaço para o ícone */
+}
+
+.input-wrapper i {
+  position: absolute;
+  right: 10px;
+  color: #555;
+  pointer-events: none; /* Evita clique no ícone */
+}

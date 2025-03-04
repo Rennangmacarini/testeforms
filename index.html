@@ -1,56 +1,71 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulário Google Sheets</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>Formulários Equipamentos</title>
+    <link rel="stylesheet" href="./styles.css">
 </head>
 
 <body>
-    <h2>Cadastro</h2>
-    <form id="formulario">
-        <label for="nome">Nome:</label>
-        <input type="text" id="nome" required>
-        <br><br>
-        <label for="sobrenome">Sobrenome:</label>
-        <input type="text" id="sobrenome" required>
-        <br><br>
-        <button type="submit">Enviar</button>
-    </form>
+    <div class="container">
+        <form action="https://sheetdb.io/api/v1/9vqolmegqskx1" method="post" id="sheetdb-form">
+            <label for="nome">Nome do colaborador</label>
+            <input type="text" id="nome" name="data[Nome do colaborador]" required>
 
-    <script>
-        document.getElementById("formulario").addEventListener("submit", async function (event) {
-            event.preventDefault();
+            <label for="tag">Tag do equipamento</label>
+            <input type="text" id="tag" name="data[Tag do equipamento]" required>
 
-            const nome = document.getElementById("nome").value.trim();
-            const sobrenome = document.getElementById("sobrenome").value.trim();
-            const url = "https://script.google.com/macros/s/AKfycbzzmGj_zRseQ97wVU6beQn4mnuKva65DEuwUTzqxeBD-YFditXsXZJh4buFo9V2rLaj/exec"; // Substitua pela URL do Apps Script
+            <label for="etiqueta">Número da Etiqueta</label>
+            <select class="m1" id="etiqueta" name="data[Tipo de etiqueta]" required>
+                <option value="m1">M1</option>
+                <option value="m2">M2</option>
+                <option value="m4">M4</option>
+                <option value="m5">M5</option>
+                <option value="m6">M6</option>
+            </select>
+            <input type="text" id="numero-etiqueta" name="data[Número de etiqueta]" required>
 
-            if (!nome || !sobrenome) {
-                alert("Por favor, preencha todos os campos.");
-                return;
-            }
+            <label for="data">Data</label>
+            <input class="data" type="date" id="data" name="data[Data]" required>
 
-            const dados = { nome, sobrenome };
+            <label for="horario">Horário</label>
+            <select class="horario" id="horario" name="data[Horário]" required>
+                <option value="08h - 16h">08h - 16h</option>
+                <option value="16h - 00h">16h - 00h</option>
+                <option value="00h - 08h">00h - 08h</option>
+            </select>
 
-            try {
-                const resposta = await fetch(url, {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify(dados)
-                });
+            <label for="turma">Turma</label>
+            <select class="turma" id="turma" name="data[Turma]" required>
+                <option value="Turma A">Turma A</option>
+                <option value="Turma B">Turma B</option>
+                <option value="Turma C">Turma C</option>
+                <option value="Turma D">Turma D</option>
+                <option value="Turma E">Turma E</option>
+            </select>
 
-                const resultado = await resposta.json();
-                alert(resultado.mensagem);
+            <label for="descricao">Descrição</label>
+            <textarea id="descricao" name="data[Descrição]" rows="4" required></textarea>
+            <div class="button">
+                <button type="submit">ENVIAR</button>
+            </div>
+        </form>
+    </div>
 
-                document.getElementById("formulario").reset();
-            } catch (erro) {
-                alert("Erro ao conectar ao servidor.");
-                console.error(erro);
-            }
-        });
-    </script>
+    <!-- Popup de sucesso -->
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <p>✅ Formulário enviado com sucesso!</p>
+            <button id="close-popup">Fechar</button>
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+
 </body>
 
 </html>

@@ -1,0 +1,108 @@
+/* Estilização do formulário */
+
+body {
+  background-image: url("./img/klabin.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100vh; /* Faz o body ocupar 100% da altura da tela */
+  display: flex;
+}
+
+.container {
+  width: 100%;
+  max-width: 400px;
+  margin: auto;
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+input,
+select,
+textarea,
+button {
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button {
+  margin-top: 15px;
+  background: green;
+  color: white;
+  cursor: pointer;
+  border: none;
+  width: 50%;
+}
+
+button:hover {
+  background: darkgreen;
+}
+
+/* Estilização do popup */
+.popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  z-index: 1000;
+}
+
+.popup.show {
+  display: block;
+}
+
+.popup-content {
+  font-size: 16px;
+  font-weight: bold;
+  color: green;
+}
+
+#close-popup {
+  margin-top: 10px;
+  padding: 5px 10px;
+  border: none;
+  background: green;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+#close-popup:hover {
+  background: darkgreen;
+}
+
+.m1 {
+  width: 15.5%;
+}
+
+.data,
+.turma,
+.horario {
+  width: 25%;
+}

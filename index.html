@@ -13,26 +13,30 @@
     <div class="container">
         <form action="https://sheetdb.io/api/v1/9vqolmegqskx1" method="post" id="sheetdb-form">
             <label for="nome">Nome do colaborador</label>
-            <input type="text" id="nome" name="data[Nome do colaborador]" required>
+            <input type="text" id="nome" name="data[Nome do colaborador]" placeholder="Digite seu Nome Completo"
+                required>
 
             <label for="tag">Tag do equipamento</label>
-            <input type="text" id="tag" name="data[Tag do equipamento]" required>
+            <input type="text" id="tag" minlength="10" maxlength="15"
+                placeholder="Digite a tag ex: 00000P0000 ou 00000M0000 " name="data[Tag do equipamento]" required>
 
             <label for="etiqueta">Número da Etiqueta</label>
             <select class="m1" id="etiqueta" name="data[Tipo de etiqueta]" required>
                 <option value="m1">M1</option>
-                <option value="m2">M2</option>
+                <option value="m3">M3</option>
                 <option value="m4">M4</option>
                 <option value="m5">M5</option>
                 <option value="m6">M6</option>
+                <option value="m7">M7</option>
             </select>
-            <input type="text" id="numero-etiqueta" name="data[Número de etiqueta]" required>
+            <input type="text" placeholder="Digite o número da Etiqueta ex: 0000000" minlength="7" maxlength="7"
+                id="numero-etiqueta" name="data[Número de etiqueta]" required>
 
             <div class="input-container">
                 <label for="data">Data</label>
                 <div class="input-wrapper">
-                    <input class="data" type="date" id="data" name="data[Data]" required>
-                    <i class="fa-solid fa-calendar"></i>
+                    <input type="date" id="data" name="data[Data]" required>
+                    <img src="./img/calender.png" id="i" class="fa-solid fa-calendar"></i>
                 </div>
             </div>
 
@@ -53,10 +57,12 @@
             </select>
 
             <label for="relato">Código do relato</label>
-            <input type="text" id="numero-relato" name="data[Relato]" required>
+            <input type="text" minlength="13" maxlength="13" id="numero-relato" name="data[Relato]"
+                placeholder="Relato se necessário">
 
             <label for="descricao">Descrição</label>
-            <textarea id="descricao" name="data[Descrição]" rows="4" required></textarea>
+            <textarea id="descricao" maxlength="250" name="data[Descrição]" placeholder="Descrição até 250 caracter."
+                rows="4" required></textarea>
             <div class="button">
                 <button type="submit">ENVIAR</button>
             </div>
